@@ -1,0 +1,35 @@
+PODS:
+  - chirpsdk (0.0.1):
+    - ChirpSDK (= 3.5.1)
+    - Flutter
+  - ChirpSDK (3.5.1)
+  - Flutter (1.0.0)
+  - simple_permissions (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - chirpsdk (from `.symlinks/plugins/chirpsdk/ios`)
+  - Flutter (from `.symlinks/flutter/ios`)
+  - simple_permissions (from `.symlinks/plugins/simple_permissions/ios`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ChirpSDK
+
+EXTERNAL SOURCES:
+  chirpsdk:
+    :path: ".symlinks/plugins/chirpsdk/ios"
+  Flutter:
+    :path: ".symlinks/flutter/ios"
+  simple_permissions:
+    :path: ".symlinks/plugins/simple_permissions/ios"
+
+SPEC CHECKSUMS:
+  ChirpSDK: 1d7520089f1b1f3452f7cf808c79321b770e7ae1
+  chirpsdk: 835ba01e01365ff3fa768924be7a1f0c15836ee2
+  Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
+  simple_permissions: a6834dbad830eee541e62be161f96c75121dc4ab
+
+PODFILE CHECKSUM: 4e42fc1dbc9b60196f45ffa3b5fe6b790b9dd3b8
+
+COCOAPODS: 1.6.1
