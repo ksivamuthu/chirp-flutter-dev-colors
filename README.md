@@ -1,5 +1,7 @@
 # Chirp Flutter Dev Colors
 
+[![Codemagic build status](https://api.codemagic.io/apps/5d082d7737a095485a9c5183/5d082d7737a095485a9c5182/status_badge.svg)](https://codemagic.io/apps/5d082d7737a095485a9c5183/5d082d7737a095485a9c5182/latest_build)
+
 Chirp Flutter Dev Colors - This repository contains Flutter application and python utility. It includes the demo of Chirp SDK on Flutter and how to transmit the data through audio to set the color of the light bulb.
 
 ## Overview
