@@ -20,8 +20,8 @@ class Callbacks(CallbackSet):
 
 
 class HueUtil:
-    ipAddress = "<IP_ADDRESS>"
-    userId = "<HUE_USERID>"
+    ipAddress = "192.168.0.5"
+    userId = "IbUDZzSJqJwaMEuH3hQzXoZKPzqsy3Qvus2Io8Vr"
     lightId = 2
     b = Bridge(ipAddress, userId)
 
@@ -33,7 +33,7 @@ class HueUtil:
         converter = Converter(GamutC)
         xy = converter.rgb_to_xy(red, green, blue)
         print(xy)
-        self.b.lights(lightId, 'state', xy=xy)
+        self.b.lights(self.lightId, 'state', xy=xy)
 
 
 chirp = ChirpConnect()
