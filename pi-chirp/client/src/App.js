@@ -8,7 +8,7 @@ import socketIOClient from 'socket.io-client';
 class App extends Component {
   constructor() {
     super();
-    this.state = { color: '#000000', listening: false };
+    this.state = { color: '#000000', listening: false, error: '' };
   }
   componentDidMount() {
     const socket = socketIOClient('localhost:3001');
@@ -17,7 +17,11 @@ class App extends Component {
     });
 
     socket.on('ChirpListening', (data) => {
-      this.setState({ listening: true });
+      this.setState({ listening: true, error: '' });
+    });
+
+    socket.on('ChirpError', (data) => {
+      this.setState({ listening: false, error: data });
     });
   }
 
@@ -36,6 +40,7 @@ class App extends Component {
           <h1>Chirping Devices</h1>
           <FontAwesomeIcon style={{ "color": this.state.color }} className="bulb" icon={faLightbulb} />
           {this.state.listening && <h1>Listening...</h1>}
+          {this.state.error && <h1>{this.state.error}</h1>}
         </div>
       </Fragment>
     );

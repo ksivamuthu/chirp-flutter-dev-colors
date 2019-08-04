@@ -25,7 +25,7 @@ chirpBridge.on('DataReceived', (data) => {
     io.emit('ChirpDataReceived', hex);
   } else if (json.type === 'listening') {
     io.emit('ChirpListening', json.data);
-  } else if (jsont.type === 'error') {
+  } else if (json.type === 'error') {
     io.emit('ChirpError', json.data);
   }
 });
