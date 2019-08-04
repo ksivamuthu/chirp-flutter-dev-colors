@@ -1,0 +1,29 @@
+FROM node:8-alpine
+
+WORKDIR /app/
+
+COPY package*.json ./
+
+COPY client/package*.json ./client/
+
+RUN npm install --production
+
+RUN cd client && npm install --loglevel verbose 
+
+COPY app.js ./
+
+COPY client/ ./client
+
+WORKDIR /app/client/
+
+RUN npm run build
+
+WORKDIR /app/
+
+RUN cp -r ./client/build ./public
+
+USER node
+
+EXPOSE 3001
+
+CMD ["node", "app.js"]
