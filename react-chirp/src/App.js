@@ -4,6 +4,10 @@ import GoogleFontLoader from 'react-google-font-loader';
 import { ListItem, List, ListItemText, Divider, ListItemIcon } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLightbulb } from '@fortawesome/free-solid-svg-icons'
+import ChirpConnect from 'chirp-js-sdk'
+
+const chirp = new ChirpConnect('43790CCAde71e7bD92bb74bEb')
+chirp.setConfig('ultrasonic-multichannel');
 
 const primaryText = {
   fontSize: '24px',
@@ -27,7 +31,8 @@ class App extends Component {
   }
 
   handleClick(item) {
-    console.log(item);
+    const payload = new TextEncoder('utf-8').encode(item.color)
+    chirp.send(payload)
   }
 
   render() {
