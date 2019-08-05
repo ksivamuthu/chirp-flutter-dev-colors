@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import './App.css';
 import GoogleFontLoader from 'react-google-font-loader';
-import { IconButton, ListItem, List, ListItemText, Divider, ListItemIcon, TextField, Button, Grid, AppBar, Toolbar, Typography, MenuItem, Icon } from '@material-ui/core';
+import { IconButton, ListItem, List, ListItemText, Divider, ListItemIcon, TextField, Button, Grid, AppBar, Toolbar, Typography } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLightbulb, faSync } from '@fortawesome/free-solid-svg-icons'
 import ChirpConnect from 'chirp-js-sdk'
@@ -33,7 +33,7 @@ class App extends Component {
   }
 
   handleClick(item) {
-    const payload = new TextEncoder('utf-8').encode(item.color)
+    const payload = new TextEncoder('utf-8').encode(JSON.stringify({ name: this.state.username, data: item.color }));
     chirp.send(payload)
   }
 
@@ -48,7 +48,7 @@ class App extends Component {
 
   resetData() {
     window.localStorage['username'] = '';
-    this.setState({ username: ''});
+    this.setState({ username: '' });
   }
 
   render() {
