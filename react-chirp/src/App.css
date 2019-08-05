@@ -8,6 +8,7 @@ body {
 
 .ColorsList {
     background-color: white;
+    margin: 20px 0px !important;
 }
 
 .bulb {
