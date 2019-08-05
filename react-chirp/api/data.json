@@ -1,0 +1,22 @@
+[
+    {
+        "title": "Angular",
+        "subtitle": "Red",
+        "color": "#B52E31"
+    },
+    {
+        "title": "React",
+        "subtitle": "Blue",
+        "color": "#00D8FF"
+    },
+    {
+        "title": "Vue",
+        "subtitle": "Green",
+        "color": "#42B883"
+    },
+    {
+        "title": "Chirp",
+        "subtitle": "Yellow",
+        "color": "#FFCF4F"
+    }
+]

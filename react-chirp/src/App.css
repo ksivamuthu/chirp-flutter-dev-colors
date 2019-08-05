@@ -1,0 +1,16 @@
+body {
+    font-family: 'Open Sans'
+}
+
+.App {
+    margin: 20px;
+}
+
+.ColorsList {
+    background-color: white;
+}
+
+.bulb {
+    width: 55px !important;
+    height: 55px !important;
+}
