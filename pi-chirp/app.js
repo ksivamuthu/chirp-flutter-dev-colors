@@ -20,9 +20,10 @@ io.on('connection', (socket) => {
 
 chirpBridge.on('DataReceived', (data) => {
   const json = JSON.parse(data);
-  if (json.type === 'hex') {
-    const hex = json.data.replace('#ff', '#');
-    io.emit('ChirpDataReceived', hex);
+  console.log(json);
+  if (json.type === 'hex' && json.data) {
+    const data = JSON.parse(json.data);
+    io.emit('ChirpDataReceived', data);
   } else if (json.type === 'listening') {
     io.emit('ChirpListening', json.data);
   } else if (json.type === 'error') {

@@ -33,7 +33,7 @@ class App extends Component {
   }
 
   handleClick(item) {
-    const payload = new TextEncoder('utf-8').encode(JSON.stringify({ name: this.state.username, data: item.color }));
+    const payload = new TextEncoder('utf-8').encode(JSON.stringify({ n: this.state.username, c: item.color }));
     chirp.send(payload)
   }
 
