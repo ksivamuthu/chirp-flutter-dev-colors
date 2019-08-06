@@ -38,13 +38,17 @@ async function lightOff(lightId) {
 }
 
 function convertHexToHsv(hex) {
-    let hsl = Color(hex).hsl();
-    console.log(hsl.toString());
-    const hue = Math.min(Math.round(hsl.hue() * 65535 / 360));
-    const saturation = Math.min(Math.round(hsl.saturationl() * 255 / 100));
-    // const brightness = Math.min(Math.round(100 * 255 / 100));
-    const brightness = 254;
-    return { hue, saturation, brightness };
+    try {
+        let hsl = Color(hex).hsl();
+        console.log(hsl.toString());
+        const hue = Math.min(Math.round(hsl.hue() * 65535 / 360));
+        const saturation = Math.min(Math.round(hsl.saturationl() * 255 / 100));
+        // const brightness = Math.min(Math.round(100 * 255 / 100));
+        const brightness = 254;
+        return { hue, saturation, brightness };
+    } catch (err) {
+        handleError(err);
+    }
 }
 
 function handleError(err) {
