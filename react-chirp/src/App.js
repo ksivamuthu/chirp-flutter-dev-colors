@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLightbulb, faSync } from '@fortawesome/free-solid-svg-icons'
 import ChirpConnect from 'chirp-js-sdk'
 
-const config = '16kHz';
+const config = 'standard';
 
 const chirp = new ChirpConnect('43790CCAde71e7bD92bb74bEb')
 chirp.setConfig(config);
@@ -40,6 +40,11 @@ class App extends Component {
       c: config === '16kHz' ? item.led : item.color
     }));
     chirp.send(payload)
+  }
+
+  copMode() {
+    const payload = new TextEncoder('utf-8').encode('cop');
+    chirp.send(payload);
   }
 
   onSaveClicked() {
@@ -124,6 +129,17 @@ class App extends Component {
                   })}
                 </div>
                 }
+                <Divider variant="fullWidth" component="li" />
+
+                <ListItem onClick={() => this.copMode()} button={true} alignItems="flex-start">
+                  <ListItemIcon>
+                    <FontAwesomeIcon className="bulb" icon={faLightbulb} />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary="COP Mode"
+                    primaryTypographyProps={{ style: primaryText }} />
+                </ListItem>
+                <Divider variant="fullWidth" component="li" />
               </List>
             </Fragment>
             }

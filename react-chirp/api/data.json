@@ -9,13 +9,13 @@
         "title": "React",
         "subtitle": "Blue",
         "color": "#00D8FF",
-        "led": "#00FF00"
+        "led": "#0000FF"
     },
     {
         "title": "Vue",
         "subtitle": "Green",
         "color": "#42B883",
-        "led": "#0000FF"
+        "led": "#00FF00"
     },
     {
         "title": "Chirp",

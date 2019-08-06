@@ -5,6 +5,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
 const chirpBridge = require('./chirpbridge');
+const hue = require('./hue');
 
 app.use(express.static('client/build'));
 
@@ -22,8 +23,13 @@ chirpBridge.on('DataReceived', (data) => {
   const json = JSON.parse(data);
   console.log(json);
   if (json.type === 'hex' && json.data) {
-    const data = JSON.parse(json.data);
-    io.emit('ChirpDataReceived', data);
+    if (json.data === 'cop') {
+      hue.setCopMode();
+    } else {
+      const data = JSON.parse(json.data);
+      hue.setLED(data.c);
+      io.emit('ChirpDataReceived', data);
+    }
   } else if (json.type === 'listening') {
     io.emit('ChirpListening', json.data);
   } else if (json.type === 'error') {
