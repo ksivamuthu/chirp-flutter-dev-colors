@@ -35,10 +35,9 @@ class App extends Component {
   }
 
   handleClick(item) {
-    const payload = new TextEncoder('utf-8').encode(JSON.stringify({
-      n: this.state.username,
-      c: config === '16kHz' ? item.led : item.color
-    }));
+    const payload = new TextEncoder('utf-8').encode(config === '16kHz' ?
+      item.led : item.color
+    );
     chirp.send(payload)
   }
 

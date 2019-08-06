@@ -13,7 +13,7 @@ class App extends Component {
   componentDidMount() {
     const socket = socketIOClient('localhost:3001');
     socket.on('ChirpDataReceived', (data) => {
-      this.setState({ name: data.n, color: data.c, listening: false });
+      this.setState({ name: 'A device', color: data, listening: false });
     });
 
     socket.on('ChirpListening', (data) => {

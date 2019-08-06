@@ -61,7 +61,7 @@ async function setCopMode() {
         setlightAttrs(2, convertHexToHsv("#ff0000"));
         await sleep(300);
         setlightAttrs(2, convertHexToHsv("#0000ff"));
-        await sleep(300);
+        await sleep(100);
     }
 }
 

@@ -26,8 +26,7 @@ chirpBridge.on('DataReceived', (data) => {
     if (json.data === 'cop') {
       hue.setCopMode();
     } else {
-      const data = JSON.parse(json.data);
-      hue.setLED(data.c);
+      hue.setLED(json.data);
       io.emit('ChirpDataReceived', data);
     }
   } else if (json.type === 'listening') {

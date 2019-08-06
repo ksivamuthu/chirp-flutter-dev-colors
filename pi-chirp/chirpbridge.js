@@ -8,9 +8,4 @@ py.stdout.on('data', (data) => {
     emitter.emit('DataReceived', data);
 });
 
-const pyUltraSonic = spawn('python3', ['python/chirpultrasonic.py']);
-pyUltraSonic.stdout.on('data', (data) => {
-    emitter.emit('DataReceived', data);
-});
-
 module.exports = emitter;
