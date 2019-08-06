@@ -23,10 +23,11 @@ chirpBridge.on('DataReceived', (data) => {
   const json = JSON.parse(data);
   console.log(json);
   if (json.type === 'hex' && json.data) {
-    if (json.data === 'cop') {
+    const data = json.data.toString();
+    if (data === 'cop') {
       hue.setCopMode();
     } else {
-      hue.setLED(json.data);
+      hue.setLED(data);
       io.emit('ChirpDataReceived', data);
     }
   } else if (json.type === 'listening') {
