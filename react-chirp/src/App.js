@@ -6,8 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLightbulb, faSync } from '@fortawesome/free-solid-svg-icons'
 import ChirpConnect from 'chirp-js-sdk'
 
+const config = '16kHz';
+
 const chirp = new ChirpConnect('43790CCAde71e7bD92bb74bEb')
-chirp.setConfig('standard');
+chirp.setConfig(config);
 
 const primaryText = {
   fontSize: '24px',
@@ -33,7 +35,10 @@ class App extends Component {
   }
 
   handleClick(item) {
-    const payload = new TextEncoder('utf-8').encode(JSON.stringify({ n: this.state.username, c: item.color }));
+    const payload = new TextEncoder('utf-8').encode(JSON.stringify({
+      n: this.state.username,
+      c: config === '16kHz' ? item.led : item.color
+    }));
     chirp.send(payload)
   }
 

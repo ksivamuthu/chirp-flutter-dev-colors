@@ -2,21 +2,25 @@
     {
         "title": "Angular",
         "subtitle": "Red",
-        "color": "#B52E31"
+        "color": "#B52E31",
+        "led": "#FF0000"
     },
     {
         "title": "React",
         "subtitle": "Blue",
-        "color": "#00D8FF"
+        "color": "#00D8FF",
+        "led": "#00FF00"
     },
     {
         "title": "Vue",
         "subtitle": "Green",
-        "color": "#42B883"
+        "color": "#42B883",
+        "led": "#0000FF"
     },
     {
         "title": "Chirp",
         "subtitle": "Yellow",
-        "color": "#FFCF4F"
+        "color": "#FFCF4F",
+        "led": "#FFFF00"
     }
 ]
