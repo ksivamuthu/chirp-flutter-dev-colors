@@ -22,5 +22,47 @@
         "subtitle": "Yellow",
         "color": "#FFCF4F",
         "led": "#FFFF00"
+    },
+    {
+        "title": "Gatsby",
+        "subtitle": "Purple",
+        "color": "#123456",
+        "led": "#123456"
+    },
+    {
+        "title": "Twitch",
+        "subtitle": "Purple",
+        "color": "#9400D3",
+        "led": "#9400D3"
+    },
+    {
+        "title": "Auth0",
+        "subtitle": "Orange",
+        "color": "#EB5424",
+        "led": "#EB5424"
+    },
+    {
+        "title": "Azure",
+        "subtitle": "Blue",
+        "color": "#007FFF",
+        "led": "#007FFF"
+    },
+    {
+        "title": "Android",
+        "subtitle": "Green",
+        "color": "#a4c639",
+        "led": "#a4c639"
+    },
+    {
+        "title": "NodeJS",
+        "subtitle": "Green",
+        "color": "#44883e",
+        "led": "#44883e"
+    },
+    {
+        "title": "Raspberry Pi",
+        "subtitle": "Red",
+        "color": "#c7053d",
+        "led": "#c7053d"
     }
 ]

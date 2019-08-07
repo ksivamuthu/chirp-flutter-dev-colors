@@ -1,1 +1,2 @@
 chirpsdk==3.4.6
+playsound==1.2.2

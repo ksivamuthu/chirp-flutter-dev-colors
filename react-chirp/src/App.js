@@ -119,7 +119,7 @@ class App extends Component {
                           <ListItemText
                             primary={item.title}
                             primaryTypographyProps={{ style: primaryText }}
-                            secondary={item.subtitle}
+                            secondary={item.subtitle + " - " + item.color.toUpperCase()}
                             secondaryTypographyProps={{ style: secondaryText }} />
                         </ListItem>
                         <Divider variant="fullWidth" component="li" />
@@ -128,7 +128,7 @@ class App extends Component {
                   })}
                 </div>
                 }
-                <Divider variant="fullWidth" component="li" />
+                {/* <Divider variant="fullWidth" component="li" />
 
                 <ListItem onClick={() => this.copMode()} button={true} alignItems="flex-start">
                   <ListItemIcon>
@@ -138,7 +138,7 @@ class App extends Component {
                     primary="COP Mode"
                     primaryTypographyProps={{ style: primaryText }} />
                 </ListItem>
-                <Divider variant="fullWidth" component="li" />
+                <Divider variant="fullWidth" component="li" /> */}
               </List>
             </Fragment>
             }
