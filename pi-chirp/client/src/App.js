@@ -23,16 +23,16 @@ class App extends Component {
         this.isCopModeInProgress = true;
         for (var i = 0; i <= 20; i++) {
           await this.sleep(200);
-          this.setState({ copmode: true, name: 'COP Mode', color: '#FF0000', listening: false });
+          this.setState({ copmode: true, name: 'COP Mode - ', color: '#FF0000', listening: false });
           await this.sleep(200);
-          this.setState({ copmode: true, name: 'COP Mode', color: '#0000FF', listening: false });
+          this.setState({ copmode: true, name: 'COP Mode - ', color: '#0000FF', listening: false });
           await this.sleep(50);
         }
         this.setState({ copmode: true, name: '', color: '#000000', listening: false });
 
         this.isCopModeInProgress = false;
       } else {
-        this.setState({ copmode: false, name: 'A device', color: data, listening: false });
+        this.setState({ copmode: false, name: 'A device chirps ', color: data, listening: false });
       }
     });
 
@@ -69,7 +69,7 @@ class App extends Component {
         <div className="App">
           <h1>Chirping Devices</h1>
           <FontAwesomeIcon style={{ "color": this.state.color }} className="bulb" icon={faLightbulb} />
-          {this.state.name && this.state.color && <h1>{this.state.name} chirps {this.state.color}</h1>}
+          {this.state.name && this.state.color && <h1>{this.state.name}{this.state.color}</h1>}
           {this.state.listening && <h1>Listening...</h1>}
           {this.state.error && <h1>{this.state.error}</h1>}
         </div>
