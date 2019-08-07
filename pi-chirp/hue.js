@@ -30,7 +30,7 @@ async function setlightAttrs(lightId, attrs) {
 async function lightOff(lightId) {
     try {
         const light = await _client.lights.getById(lightId);
-        light.off = true;
+        light.on = false;
         await _client.lights.save(light);
     } catch (err) {
         handleError(err);
@@ -60,13 +60,14 @@ function setLED(hex) {
 }
 
 async function setCopMode() {
-    for (var i = 0; i <= 20; i++) {
+    for (var i = 0; i <= 15; i++) {
         await sleep(300);
-        setlightAttrs(2, convertHexToHsv("#ff0000"));
+        await setlightAttrs(2, convertHexToHsv("#ff0000"));
         await sleep(300);
-        setlightAttrs(2, convertHexToHsv("#0000ff"));
+        await setlightAttrs(2, convertHexToHsv("#0000ff"));
         await sleep(100);
     }
+    await lightOff(2);
 }
 
 function sleep(ms) {

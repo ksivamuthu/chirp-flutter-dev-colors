@@ -8,21 +8,51 @@ import socketIOClient from 'socket.io-client';
 class App extends Component {
   constructor() {
     super();
-    this.state = { name: '', color: '#000000', listening: false, error: '' };
+    this.state = { copmode: false, name: '', color: '#000000', listening: false, error: '' };
   }
+
+  isCopModeInProgress = false;
+
   componentDidMount() {
     const socket = socketIOClient('localhost:3001');
-    socket.on('ChirpDataReceived', (data) => {
-      this.setState({ name: 'A device', color: data, listening: false });
+    socket.on('ChirpDataReceived', async (data) => {
+      if (this.isCopModeInProgress) {
+        return;
+      }
+      if (data === 'cop') {
+        this.isCopModeInProgress = true;
+        for (var i = 0; i <= 20; i++) {
+          await this.sleep(200);
+          this.setState({ copmode: true, name: 'COP Mode', color: '#FF0000', listening: false });
+          await this.sleep(200);
+          this.setState({ copmode: true, name: 'COP Mode', color: '#0000FF', listening: false });
+          await this.sleep(50);
+        }
+        this.setState({ copmode: true, name: '', color: '#000000', listening: false });
+
+        this.isCopModeInProgress = false;
+      } else {
+        this.setState({ copmode: false, name: 'A device', color: data, listening: false });
+      }
     });
 
     socket.on('ChirpListening', (data) => {
+      if (this.isCopModeInProgress) {
+        return;
+      }
       this.setState({ name: '', listening: true, error: '' });
     });
 
     socket.on('ChirpError', (data) => {
+      if (this.isCopModeInProgress) {
+        return;
+      }
       this.setState({ color: '#000000', name: '', listening: false, error: data });
     });
+  }
+
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   render() {

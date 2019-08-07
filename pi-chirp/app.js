@@ -28,8 +28,8 @@ chirpBridge.on('DataReceived', (data) => {
       hue.setCopMode();
     } else {
       hue.setLED(data);
-      io.emit('ChirpDataReceived', data);
     }
+    io.emit('ChirpDataReceived', data);
   } else if (json.type === 'listening') {
     io.emit('ChirpListening', json.data);
   } else if (json.type === 'error') {
